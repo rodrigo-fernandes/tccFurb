@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.primefaces.event.SelectEvent;
 import org.primefaces.event.UnselectEvent;
 import org.primefaces.model.StreamedContent;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +19,11 @@ import br.com.framework.interfac.crud.InterfaceCrud;
 import br.com.project.bean.geral.BeanManagedViewAbstract;
 import br.com.project.carregamento.lazy.CarregamentoLazyListForObject;
 import br.com.project.geral.controller.DiarioController;
+import br.com.project.geral.controller.EntidadeController;
+import br.com.project.geral.controller.FilialController;
+import br.com.project.model.classes.Bairro;
 import br.com.project.model.classes.Diario;
+import br.com.project.model.classes.Filial;
 
 @Controller
 @Scope(value = "session")
@@ -33,6 +38,9 @@ public class DiarioBeanView extends BeanManagedViewAbstract {
 
 	@Resource
 	private DiarioController diarioController;
+	
+	@Resource
+	private FilialController filialController;
 
 	public void setDiarioController(DiarioController diarioController) {
 		this.diarioController = diarioController;
@@ -65,6 +73,16 @@ public class DiarioBeanView extends BeanManagedViewAbstract {
 	 */
 	@Override
 	public void saveNotReturn() throws Exception {
+		if (objetoSelecionado.getFil_codigo() != null
+				&& objetoSelecionado.getFil_codigo().getFil_codigo() != null
+				&& objetoSelecionado.getFil_codigo().getFil_codigo() > 0) {
+			objetoSelecionado
+					.setFil_codigo(filialController.findUninqueByProperty(
+							Filial.class, objetoSelecionado.getFil_codigo()
+									.getFil_codigo(), "fil_codigo"));
+		}
+		
+		
 		if (validarCampoObrigatorio(objetoSelecionado)) {
 			list.clear();
 			objetoSelecionado = diarioController.merge(objetoSelecionado);
@@ -124,6 +142,17 @@ public class DiarioBeanView extends BeanManagedViewAbstract {
 		list.clear();
 		objetoSelecionado = new Diario();
 	}
+	
+	@RequestMapping("**/addCriancaFilial")
+	public void addFilialFilial(@RequestParam Long codFilial) throws Exception {
+		if (codFilial != null && codFilial > 0) {
+				objetoSelecionado.setFil_codigo(filialController
+						.findUninqueByProperty(Filial.class, codFilial,
+								"fil_codigo"));
+		}
+	}	
+	
+	
 
 	@Override
 	protected Class<?> getClassImplement() {

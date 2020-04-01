@@ -729,7 +729,41 @@ function addBairroFilial(id) {
 	if (id.trim() != '') {
 		 $.get("addBairroFilial?codBairro=" + id);
 	}
+}
+
+
+function addCriancaFilial(id) {
+	if (id.trim() != '') {
+		 $.get("addCriancaFilial?codFilial=" + id);
+	}
 } 
+
+function addCriancaSelecionadoFilial(objeto) {
+	var filialObj = JSON.parse(objeto);
+	$("#fil_codigo").val(filialObj.fil_codigo);
+	$("#fil_descricao").val(validaDescricao(filialObj.fil_descricao));
+	addCriancaFilial(''+filialObj.fil_codigo);
+}
+
+function pesquisarCriancaPerderFoco(id) {
+	if (id.trim() != '') {
+	 statusDialog.show();
+	 $("#dia_descricao").val('');
+	 $.get("findDiario?codDiario=" + id, function(resposta) {
+	        if (resposta != 'erro' && resposta.trim() != ''){
+	        	var diariolObj = JSON.parse(resposta);
+	        	$("#dia_codigo").val(diarioObj.dia_codigo);
+	        	$("#dia_descricao").val(validaDescricao(diarioObj.dia_descricao));
+	        }
+	   })
+	   .always(function() { 
+		   statusDialog.hide();
+		});
+	}
+}
+
+
+
 
 
 function addDestinoMsg(id) {
@@ -774,7 +808,38 @@ function addBairroEntidade(id) {
 	if (id.trim() != '') {
 		 $.get("addBairroEntidade?codBairro=" + id);
 	}
+}
+
+
+/**
+ * Add crianca selecionado na entidade sendo cadastrada
+ * 
+ * @param id
+ */
+function addCriancaEntidade(id) {
+	if (id.trim() != '') {
+		 $.get("addCriancaEntidade?codEntidade=" + id);
+	}
 } 
+
+
+
+
+
+
+/**
+ * Add criança seleiconado na tela de diário
+ * 
+ * @param objeto
+ */
+function addCriancaSelecionadoEntidade(objeto) {
+	var entidadeObj = JSON.parse(objeto);
+	$("#ent_codigo").val(entidadeObj.ent_codigo);
+	$("#ent_nomefantasia").val(validaDescricao(entidadeObj.ent_nomefantasia));
+	addCriancaEntidade(''+entidadeObj.ent_codigo);
+}
+
+
 
 
 /**

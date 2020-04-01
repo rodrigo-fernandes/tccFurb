@@ -303,6 +303,7 @@ public class EntidadeBeanView extends BeanManagedViewAbstract {
 		}
 	}
 
+
 	@RequestMapping("**/addCidadeEntidade")
 	public void addCidadeFilial(@RequestParam Long codCidade) throws Exception {
 

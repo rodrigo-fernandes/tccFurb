@@ -46,10 +46,10 @@ public class Diario {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dia_datahora = new Date();
 
-	/*@ManyToOne(fetch = FetchType.EAGER)
-	@ForeignKey(name = "ent_codigo_fk")
-	@JoinColumn(name = "ent_codigo") */
-	private int ent_codigo;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@ForeignKey(name = "fil_codigo_fk")
+	@JoinColumn(name = "fil_codigo") 
+	private Filial fil_codigo;
 
 	@Version
 	@Column(name = "versionNum")
@@ -79,12 +79,12 @@ public class Diario {
 		this.dia_datahora = dia_datahora;
 	}
 
-	public int getEnt_codigo() {
-		return ent_codigo;
+	public Filial getFil_codigo() {
+		return fil_codigo;
 	}
 
-	public void setEnt_codigo(int ent_codigo) {
-		this.ent_codigo = ent_codigo;
+	public void setFil_codigo(Filial fil_codigo) {
+		this.fil_codigo = fil_codigo;
 	}
 
 	public int getVersionNum() {
