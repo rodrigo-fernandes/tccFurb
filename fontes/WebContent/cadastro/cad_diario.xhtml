@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:sec="http://www.springframework.org/security/facelets/tags"
+	xmlns:util="http://java.sun.com/jsf/composite/components"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/templatePrincipal.xhtml">
+	<ui:define name="corpo">
+		<h:form id="formCadastro" prependId="false" >
+		 <c:set var="isCadastro" value="true" scope="view"/>
+		 
+			<p:panel header="Cadastro de Diario" id="panelCadastro">
+			
+				<h:panelGrid id="gridDiario" columns="3">
+				
+					<p:column>
+						<p:row>
+							<h:outputLabel for="id" value="Código : " id="labelId"
+								style="width:300px;" />
+						</p:row>
+					</p:column>
+					<p:column>
+						<p:row>
+							<p:inputText id="id" styleClass="estiloIdCastro"
+								value="#{diarioBeanView.objetoSelecionado.dia_codigo}"
+								readonly="true" />
+						</p:row>
+					</p:column>
+					
+					<p:column/>
+					
+					<p:column id="collabelDataDiario">
+						<p:row>
+							<h:outputLabel for="dia_datahora"
+								value="Data do Diário : " id="labelDataNasc" />
+						</p:row>
+					</p:column>
+					<p:column id="colent_datadiario">
+						<p:row >
+							<p:calendar locale="pt" showButtonPanel="true" showOn="button" 
+								styleClass="calendar" pattern="dd/MM/yyyy HH:mm:ss" readonlyInput="true"
+								navigator="true" id="dia_datahora"
+								value="#{diarioBeanView.objetoSelecionado.dia_datahora}" />
+						</p:row>
+					</p:column>
+					<p:column id="colmsgent_datanascimento">
+						<p:row>
+							<p:message for="dia_datahora"
+							 id="msgent_datanascimento" />
+						</p:row>
+					</p:column>
+					
+					
+					
+					<p:column>
+						<p:row>
+							<h:outputLabel for="dia_descricao" id="labelDescricao"
+								value="Descrição * : " />
+						</p:row>
+					</p:column>
+					<p:column>
+						<p:row>
+							<p:inputTextarea id="dia_descricao"
+								value="#{diarioBeanView.objetoSelecionado.dia_descricao}"
+								required="true" requiredMessage="Informe o campo descrição."
+								maxlength="100" styleClass="estyleInputName"  />
+						</p:row>
+					</p:column>
+					
+
+				</h:panelGrid>
+			</p:panel>
+
+			<div class="espacoBranco" />
+			
+			
+			
+		<util:botoesCrud 
+				managedBeanView="#{diarioBeanView}"
+				camposReload=":formTemplate:msg, tableResult" 
+				botaoNovo = "#{contextoBean.possuiAcesso('DIARIO_NOVO', 'ADMIN')}"
+				botaoSalvar = "#{contextoBean.possuiAcesso('DIARIO_NOVO', 'ADMIN') and diarioBeanView.objetoSelecionado.dia_codigo == null}"
+				botaoAtualizar = "#{contextoBean.possuiAcesso('DIARIO_EDITAR', 'ADMIN') and diarioBeanView.objetoSelecionado.dia_codigo != null}"
+				botaoExcluir = "#{contextoBean.possuiAcesso('DIARIO_EXCLUIR', 'ADMIN')}"/>
+				
+				
+			
+				
+				
+		</h:form>
+		
+		<script type="text/javascript" charset="UTF-8">
+			addFocoAoCampo('diario');
+			gerenciaTeclaEnter();
+
+		</script>
+		
+		<div class="espacoBranco" />
+
+		<p:dataTable id="tableResult" value="#{diarioBeanView.list}" rendered="#{diarioBeanView.list.list.size() > 0}"
+			var="objeto" rows="10" paginatorPosition="bottom" paginator="true"
+			lazy="true"
+			emptyMessage="Não existem valores para exibição."
+			paginatorTemplate=" {FirstPageLink}
+								   {PreviousPageLink} {PageLinks} 
+	 							   {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
+
+			<ui:include src="/resources/components/colunasDataTableDiario.xhtml" />
+
+		</p:dataTable>
+	</ui:define>
+</ui:composition>
+</html>
