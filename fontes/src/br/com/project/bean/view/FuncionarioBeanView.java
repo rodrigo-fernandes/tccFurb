@@ -263,7 +263,7 @@ public class FuncionarioBeanView extends BeanManagedViewAbstract {
 								"fil_codigo"));
 		}
 	}
-
+	
 	@Override
 	public void excluir() throws Exception {
 			if (objetoSelecionado.getEnt_codigo() != null

@@ -9,64 +9,71 @@
 	xmlns:sec="http://www.springframework.org/security/facelets/tags">
 <p:column style="width:100px;">
 	<center> <f:facet name="header">Código</f:facet> <h:outputText
-		value="#{objeto.fil_codigo}" /> </center>
+		value="#{objeto.cri_codigo}" /> </center>
 </p:column>
 <p:column>
 	<center> <f:facet name="header">Nome</f:facet> <h:outputText
-		value="#{objeto.fil_nome}" /> </center>
+		value="#{objeto.cri_nome}" /> </center>
 </p:column>
-
 <p:column>
 	<center> <f:facet name="header">RG</f:facet> <h:outputText
-		value="#{objeto.fil_rg}" /> </center>
+		value="#{objeto.cri_rg}" /> </center>
 </p:column>
 <p:column>
 	<center> <f:facet name="header">CPF</f:facet> <h:outputText
-		value="#{objeto.fil_cpf}" /> </center>
+		value="#{objeto.cri_cpf}" /> </center>
+</p:column>
+<p:column>
+	<center> <f:facet name="header">Dt. Cadastro</f:facet> <h:outputText
+		value="#{objeto.cri_datacadastro}" /> </center>
 </p:column>
 <p:column>
 	<center> <f:facet name="header">Dt. Nascimento</f:facet> <h:outputText
-		value="#{objeto.fil_datanascimento}" /> </center>
+		value="#{objeto.cri_datanascimento}" /> </center>
 </p:column>
 
+<p:column>
+	<center> <f:facet name="header">Observação</f:facet> <h:outputText
+		value="#{objeto.cri_observacao}" /> </center>
+</p:column>
 
 
 <p:column style="width:50px;" id="colExcluir" exportable="false" >
 	<center> <f:facet name="header">Excluir</f:facet> <c:choose>
 		<c:when test="${isCadastro == false}">
-			<p:commandLink action="#{filialBeanView.excluir}"
+			<p:commandLink action="#{criancaNewBeanView.excluir}"
 				id="buttonColunaExcluir" ajax="true" partialSubmit="true"
 				process="@this" immediate="true" update="tableResult"
-				onfocus="addFocoAoCampo('filDescricao');"
-				onclick="if(!confirm('Confirma a exclusão da criança : #{objeto.fil_nome}?')) return false;">
+				onfocus="addFocoAoCampo('crianca');"
+				onclick="if(!confirm('Confirma a exclusão da crianca : #{objeto.cri_nome}?')) return false;">
 				<h:graphicImage library="img" name="excluir16.png"
 					styleClass="bordaImagem" />
 				<f:setPropertyActionListener
-					target="#{filialBeanView.objetoSelecionado}" value="#{objeto}" />
+					target="#{criancaNewBeanView.objetoSelecionado}" value="#{objeto}" />
 			</p:commandLink>
 		</c:when>
 		<c:otherwise>
-			<p:commandLink action="#{filialBeanView.excluir}"
+			<p:commandLink action="#{CriancaNewBeanView.excluir}"
 				id="buttonColunaExcluir" ajax="false" partialSubmit="true"
 				process="@this" immediate="true" update="tableResult"
-				onfocus="addFocoAoCampo('filDescricao');"
-				onclick="if(!confirm('Confirma a exclusão da criança : #{objeto.fil_nome}?')) return false;">
+				onfocus="addFocoAoCampo('crianca');"
+				onclick="if(!confirm('Confirma a exclusão da criança : #{objeto.cri_nome}?')) return false;">
 				<h:graphicImage library="img" name="excluir16.png"
 					styleClass="bordaImagem" />
 				<f:setPropertyActionListener
-					target="#{filialBeanView.objetoSelecionado}" value="#{objeto}" />
+					target="#{criancaNewBeanView.objetoSelecionado}" value="#{objeto}" />
 			</p:commandLink>
 		</c:otherwise>
 	</c:choose> </center>
 </p:column>
 <p:column style="width:50px;" id="colEditar" exportable="false" >
 	<center> <f:facet name="header">Editar</f:facet> <p:commandLink
-		immediate="true" action="#{filialBeanView.editar}" ajax="true"
-		id="editarEnt" oncomplete="addFocoAoCampo('filDescricao');">
+		immediate="true" action="#{criancaNewBeanView.editar}" ajax="true"
+		id="editarEnt" oncomplete="addFocoAoCampo('crianca');">
 		<h:graphicImage library="img" name="editar16.png"
 			styleClass="bordaImagem" />
 		<f:setPropertyActionListener value="#{objeto}"
-			target="#{filialBeanView.objetoSelecionado}" />
+			target="#{criancaNewBeanView.objetoSelecionado}" />
 	</p:commandLink> </center>
 </p:column>
 </html>

@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -46,6 +45,7 @@ public class Diario {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date dia_datahora = new Date();
 
+	@IdentificaCampoPesquisa(descricaoCampo = "Criança", campoConsulta = "fil_codigo.fil_nome")
 	@ManyToOne(fetch = FetchType.EAGER)
 	@ForeignKey(name = "fil_codigo_fk")
 	@JoinColumn(name = "fil_codigo") 

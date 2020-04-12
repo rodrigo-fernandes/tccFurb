@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:sec="http://www.springframework.org/security/facelets/tags"
+	xmlns:util="http://java.sun.com/jsf/composite/components"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/templatePrincipal.xhtml">
+	<ui:define name="corpo">
+		<h:form id="formCadastro" prependId="false" >
+		 <c:set var="isCadastro" value="true" scope="view"/>
+		 
+			<p:panel header="Cadastro de Criança" id="panelCadastro">
+			
+				<h:panelGrid id="gridCrianca" columns="3">
+				
+					<p:column>
+						<p:row>
+							<h:outputLabel for="id" value="Código : " id="labelId"
+								style="width:300px;" />
+						</p:row>
+					</p:column>
+					<p:column>
+						<p:row>
+							<p:inputText id="id" styleClass="estiloIdCastro"
+								value="#{criancaNewBeanView.objetoSelecionado.cri_codigo}"
+								readonly="true" />
+						</p:row>
+					</p:column>
+					
+					<p:column/>
+					
+					<p:column id="collabelDataCriancaNew">
+						<p:row>
+							<h:outputLabel for="cri_datacadastro"
+								value="Data do Cadastroo : " id="labelDataNasc" />
+						</p:row>
+					</p:column>
+					<p:column id="colent_dataCriancaNew">
+						<p:row >
+							<p:calendar locale="pt" showButtonPanel="true" showOn="button" 
+								styleClass="calendar" pattern="dd/MM/yyyy HH:mm:ss" readonlyInput="true"
+								navigator="true" id="cri_datacadastro"
+								value="#{criancaNewBeanView.objetoSelecionado.cri_datacadastro}" />
+						</p:row>
+					</p:column>
+					<p:column id="colmsgent_dataCriancaNew">
+						<p:row>
+							<p:message for="cri_datacadastro"
+							 id="msgent_datacadastro" />
+						</p:row>
+					</p:column>
+
+					
+					<p:column>
+						<p:row>
+							<h:outputLabel for="cri_nome" id="labelNome"
+								value="Nome * : " />
+						</p:row>
+					</p:column>
+					<p:column>
+						<p:row>
+							<p:inputText id="cri_nome"
+								value="#{criancaNewBeanView.objetoSelecionado.cri_nome}"
+								required="true" requiredMessage="Informe o campo Nome."
+								maxlength="100" styleClass="estyleInputName"  />
+						</p:row>
+					</p:column>
+					
+					<p:column/>
+					
+					<p:column>
+						<p:row>
+							<h:outputLabel for="cri_rg" id="labelCri_rg"
+								value="RG : " />
+						</p:row>
+					</p:column>
+					<p:column>
+						<p:row>
+							<p:inputMask id="cri_rg" mask="9999999"
+								value="#{criancaNewBeanView.objetoSelecionado.cri_rg}"
+								required="false" requiredMessage="Informe o campo RG."
+								maxlength="100" styleClass="estiloIdCastro" />
+						</p:row>
+					</p:column>
+					<p:column>
+						<p:row>
+							<p:message for="cri_rg" />
+						</p:row>
+					</p:column>
+					
+
+					
+					
+					<p:column>
+						<p:row>
+							<h:outputLabel for="cri_cpf" id="labelCri_cpf"
+								value="CPF : " />
+						</p:row>
+					</p:column>
+					<p:column>
+						<p:row>
+							<p:inputMask id="cri_cpf" mask="999.999.999-99"
+								value="#{criancaNewBeanView.objetoSelecionado.cri_cpf}"
+								required="false" requiredMessage="Informe o campo CPF."
+								maxlength="100" styleClass="estiloIdCastro" />
+						</p:row>
+					</p:column>
+					<p:column>
+						<p:row>
+							<p:message for="cri_cpf" />
+						</p:row>
+					</p:column>		
+					
+					
+					
+					<p:column> 
+						<p:row>
+							<h:outputLabel for="cri_datanascimento"
+								value="Data de nascimento : " id="labelDataNascimento" />
+						</p:row>
+					</p:column>
+					<p:column>
+						<p:row>
+							<p:calendar locale="pt" showButtonPanel="true" showOn="button"
+								styleClass="calendar" pattern="dd/MM/yyyy" readonlyInput="true"
+								navigator="true" id="cri_datanascimento"
+								value="#{criancaNewBeanView.objetoSelecionado.cri_datanascimento}" />
+						</p:row>
+					</p:column>
+					<p:column>
+						<p:row>
+							<p:message for="cri_datanascimento" />
+						</p:row>
+					</p:column>					
+					
+					
+					
+					
+					<p:column>
+						<p:row>
+							<h:outputLabel for="cri_observacao" id="labelObservacao"
+								value="Observação : " />
+						</p:row>
+					</p:column>
+					<p:column>
+						<p:row>
+							<p:inputTextarea id="cri_observacao" autoResize="true"
+								style="height:60px;width:502px;"
+								value="#{criancaNewBeanView.objetoSelecionado.cri_observacao}"
+								required="false" requiredMessage="Informe o campo observação."
+								maxlength="5000" styleClass="estyleInputObservacao"  />
+						</p:row>
+					</p:column>					
+					
+					
+					
+					<p:column/>
+					
+					
+					
+					
+
+				</h:panelGrid>
+			</p:panel>
+			
+			
+			
+			
+			
+			
+			
+
+			<div class="espacoBranco" />
+			
+			
+			
+		<util:botoesCrud 
+				managedBeanView="#{criancaNewBeanView}"
+				camposReload=":formTemplate:msg, tableResult" 
+				botaoNovo = "#{contextoBean.possuiAcesso('CRIANCA_NOVO', 'ADMIN')}"
+				botaoSalvar = "#{contextoBean.possuiAcesso('CRIANCA_NOVO', 'ADMIN') and criancaNewBeanView.objetoSelecionado.cri_codigo == null}"
+				botaoAtualizar = "#{contextoBean.possuiAcesso('CRIANCA_EDITAR', 'ADMIN') and criancaNewBeanView.objetoSelecionado.cri_codigo != null}"
+				botaoExcluir = "#{contextoBean.possuiAcesso('CRIANCA_EXCLUIR', 'ADMIN')}"/>
+				
+				
+		</h:form>
+		
+		<script type="text/javascript" charset="UTF-8">
+			addFocoAoCampo('criancaNew');
+			permitirApenasNumero('cri_codigo');
+			gerenciaTeclaEnter();
+
+		</script>
+		
+		<div class="espacoBranco" />
+
+		<p:dataTable id="tableResult" value="#{criancaNewBeanView.list}" rendered="#{criancaNewBeanView.list.list.size() > 0}"
+			var="objeto" rows="10" paginatorPosition="bottom" paginator="true"
+			lazy="true"
+			emptyMessage="Não existem valores para exibição."
+			paginatorTemplate=" {FirstPageLink}
+								   {PreviousPageLink} {PageLinks} 
+	 							   {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
+
+			<ui:include src="/resources/components/colunasDataTableCriancaNew.xhtml" />
+
+		</p:dataTable>
+		
+	
+
+		
+		
+		
+	</ui:define>
+</ui:composition>
+</html>

@@ -41,7 +41,7 @@ public class ComissaoFuncionarioFilial implements Serializable {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "comissao_funcionario_filial_seq")
 	private Long com_codigo;
 
-	@IdentificaCampoPesquisa(descricaoCampo = "Filial", campoConsulta = "fil_codigo.fil_descricao", principal = 4)
+	@IdentificaCampoPesquisa(descricaoCampo = "Filial", campoConsulta = "fil_codigo.fil_nome", principal = 4)
 	@Basic
 	@ManyToOne
 	@JoinColumn(name = "fil_codigo", nullable = false)

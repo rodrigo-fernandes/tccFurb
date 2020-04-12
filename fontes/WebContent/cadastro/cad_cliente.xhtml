@@ -396,10 +396,9 @@
 						</p:row>
 					</p:column>
 
-					<!-- Desativacao da Filial
 					<p:column>
 						<p:row >
-							<h:outputLabel for="fil_codigo" value="Filial : " 
+							<h:outputLabel for="fil_codigo" value="Criança : " 
 								id="labelFilial" />
 						</p:row>
 					</p:column>
@@ -416,8 +415,8 @@
 								oncomplete="filialDialog.show();"
 								update=":formTemplate:filialDialog"								
 								process="@this" styleClass="buttonPesquisa" />
-							<p:inputText id="fil_descricao" readonly="true" immediate="true"
-								value="#{entidadeBeanView.objetoSelecionado.fil_codigo.fil_descricao}"
+							<p:inputText id="fil_nome" readonly="true" immediate="true"
+								value="#{entidadeBeanView.objetoSelecionado.fil_codigo.fil_nome}"
 								required="false" requiredMessage="Informe o campo filial."
 								style="width: 350px;" />
 						</p:row>
@@ -427,7 +426,7 @@
 							<p:message for="fil_codigo" />
 						</p:row>
 					</p:column>
- 					-->
+ 					
 
 					<p:column>
 						<p:row>
@@ -515,6 +514,77 @@
 					</p:column>
 				</sec:ifAnyGranted>
 				</p:panelGrid>
+
+				<p:fieldset legend="Senha" style=" padding-left: 37px;"> 
+					<p:panelGrid id="gridFuncSenha" columns="3">
+						<p:column>
+							<p:row>
+								<h:outputLabel for="ent_login" value="Login : " id="labelLogin"
+									style="width:300px;" />
+							</p:row>
+						</p:column>
+						<p:column>
+							<p:row>
+								<p:inputText id="ent_login" styleClass="estiloIdCastro"
+									maxlength="20"
+									value="#{funcionarioBeanView.objetoSelecionado.ent_login}"
+									required="true" requiredMessage="Informe o campo login." />
+							</p:row>
+						</p:column>
+						<p:column>
+							<p:row>
+								<p:message for="ent_login" />
+							</p:row>
+						</p:column>
+
+
+						<p:column>
+							<p:row>
+								<h:outputLabel for="ent_senha" value="Senha : " id="labelSenha"
+									style="width:300px;" />
+							</p:row>
+						</p:column>
+						<p:column>
+							<p:row>
+								<p:password id="ent_senha" styleClass="estiloIdCastro"
+									maxlength="20" 
+									feedback="true" 
+									promptLabel="Informe a senha"
+									weakLabel="Ruim"
+									goodLabel="Boa"
+									strongLabel="Ótima"
+									value="#{funcionarioBeanView.objetoSelecionado.ent_senha}"
+									required="true" requiredMessage="Informe o campo senha." />
+							</p:row>
+						</p:column>
+						<p:column>
+							<p:row>
+								<p:message for="ent_senha" />
+							</p:row>
+						</p:column>
+
+
+						<p:column>
+							<p:row>
+								<h:outputLabel for="ent_mudarsenha" value="Mudar senha : "
+									id="labelMudarSenha" style="width:300px;" />
+							</p:row>
+						</p:column>
+						<p:column>
+							<p:row>
+								<p:selectBooleanCheckbox id="ent_mudarsenha"
+									value="#{funcionarioBeanView.objetoSelecionado.ent_mudarsenha}" />
+							</p:row>
+						</p:column>
+						<p:column>
+							<p:row>
+								<p:message for="ent_mudarsenha" />
+							</p:row>
+						</p:column>
+					</p:panelGrid>
+				</p:fieldset>
+
+
 
 			</p:panel>
 

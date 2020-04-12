@@ -1,13 +1,12 @@
 package br.com.project.model.classes;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,6 +15,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Version;
 
 import org.hibernate.annotations.ForeignKey;
@@ -23,8 +24,6 @@ import org.hibernate.envers.Audited;
 import org.primefaces.json.JSONObject;
 
 import br.com.project.annotation.IdentificaCampoPesquisa;
-import br.com.project.enums.EmailAutenticacao;
-import br.com.project.enums.SegurancaEmail;
 
 @Audited
 @Entity
@@ -40,9 +39,11 @@ public class Filial implements Serializable {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "filial_seq")
 	private Long fil_codigo;
 
+	/*
 	@IdentificaCampoPesquisa(descricaoCampo = "Descrição", campoConsulta = "fil_descricao", principal = 1)
 	@Column(length = 100, nullable = false)
 	private String fil_descricao;
+	*/
 
 	@Column(length = 100)
 	private String fil_endereco;
@@ -50,8 +51,10 @@ public class Filial implements Serializable {
 	@Column(length = 20)
 	private String fil_fone;
 
+	/*
 	@Column(length = 20)
 	private String fil_fax;
+	*/
 
 	@Column(length = 15)
 	private String fil_cep;
@@ -65,14 +68,47 @@ public class Filial implements Serializable {
 	@ForeignKey(name = "cid_codigo_fk")
 	@JoinColumn(name = "cid_codigo")
 	private Cidade cid_codigo = new Cidade();
+	
+	
+	@IdentificaCampoPesquisa(descricaoCampo = "Nome", campoConsulta = "fil_nome", principal = 1)
+	@Column(length = 255, nullable = false)
+	private String fil_nome;
+	
+	@IdentificaCampoPesquisa(descricaoCampo = "RG", campoConsulta = "fil_rg", principal = 1)
+	@Column(length = 10, nullable = false)
+	private String fil_rg;
+	
+	@IdentificaCampoPesquisa(descricaoCampo = "CPF", campoConsulta = "cri_cpf", principal = 1)
+	@Column(length = 15, nullable = false)
+	private String fil_cpf;	
+	
+	@Column(nullable = false, updatable = false)
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date fil_datacadastro = new Date();	
 
-	@Column(length = 100)
+	@IdentificaCampoPesquisa(descricaoCampo = "Data Nascimento", campoConsulta = "fil_datanascimento", principal = 1)
+	@Temporal(TemporalType.DATE)
+	private Date fil_datanascimento;	
+	
+	@IdentificaCampoPesquisa(descricaoCampo = "Observação", campoConsulta = "fil_observacao", principal = 1)
+	@Column(length = 5000, nullable = false)
+	private String fil_observacao;		
+	
+	
+	
+	
+	
+	
+
+	/*@Column(length = 100)
 	private String fil_enderecoemail;
 
 	private Integer fil_portaemail;
-
+	 
+	
 	private Boolean fil_autenticaremail; 
-
+	 
+	
 	@Column(length = 100)
 	@Enumerated(EnumType.STRING)
 	private SegurancaEmail fil_segurancaemail;
@@ -91,7 +127,7 @@ public class Filial implements Serializable {
 	private String fil_statuscomissao;
 	
 	private String fil_servidoremail;
-	
+	*/
 	@Version
 	@Column(name = "versionNum")
 	private int versionNum;
@@ -104,13 +140,14 @@ public class Filial implements Serializable {
 		this.versionNum = versionNum;
 	}
 
+	/*
 	public String getFil_statuscomissao() {
 		return fil_statuscomissao;
 	}
 
 	public void setFil_statuscomissao(String fil_statuscomissao) {
 		this.fil_statuscomissao = fil_statuscomissao;
-	}
+	}*/
 
 	public Long getFil_codigo() {
 		return fil_codigo;
@@ -120,13 +157,14 @@ public class Filial implements Serializable {
 		this.fil_codigo = fil_codigo;
 	}
 
+	/*
 	public String getFil_descricao() {
 		return fil_descricao;
 	}
 
 	public void setFil_descricao(String fil_descricao) {
 		this.fil_descricao = fil_descricao;
-	}
+	}*/
 
 	public String getFil_endereco() {
 		return fil_endereco;
@@ -144,13 +182,14 @@ public class Filial implements Serializable {
 		this.fil_fone = fil_fone;
 	}
 
+	/*
 	public String getFil_fax() {
 		return fil_fax;
 	}
 
 	public void setFil_fax(String fil_fax) {
 		this.fil_fax = fil_fax;
-	}
+	}*/
 
 	public String getFil_cep() {
 		return fil_cep;
@@ -176,6 +215,7 @@ public class Filial implements Serializable {
 		this.cid_codigo = cid_codigo;
 	}
 
+	/*
 	public String getFil_enderecoemail() {
 		return fil_enderecoemail;
 	}
@@ -240,6 +280,11 @@ public class Filial implements Serializable {
 	public void setFil_servidoremail(String fil_servidoremail) {
 		this.fil_servidoremail = fil_servidoremail;
 	}
+	*/
+	
+	
+	
+	
 
 	@Override
 	public int hashCode() {
@@ -248,6 +293,54 @@ public class Filial implements Serializable {
 		result = prime * result
 				+ ((fil_codigo == null) ? 0 : fil_codigo.hashCode());
 		return result;
+	}
+
+	public String getFil_nome() {
+		return fil_nome;
+	}
+
+	public void setFil_nome(String fil_nome) {
+		this.fil_nome = fil_nome;
+	}
+
+	public String getFil_rg() {
+		return fil_rg;
+	}
+
+	public void setFil_rg(String fil_rg) {
+		this.fil_rg = fil_rg;
+	}
+
+	public String getFil_cpf() {
+		return fil_cpf;
+	}
+
+	public void setFil_cpf(String fil_cpf) {
+		this.fil_cpf = fil_cpf;
+	}
+
+	public Date getFil_datacadastro() {
+		return fil_datacadastro;
+	}
+
+	public void setFil_datacadastro(Date fil_datacadastro) {
+		this.fil_datacadastro = fil_datacadastro;
+	}
+
+	public Date getFil_datanascimento() {
+		return fil_datanascimento;
+	}
+
+	public void setFil_datanascimento(Date fil_datanascimento) {
+		this.fil_datanascimento = fil_datanascimento;
+	}
+
+	public String getFil_observacao() {
+		return fil_observacao;
+	}
+
+	public void setFil_observacao(String fil_observacao) {
+		this.fil_observacao = fil_observacao;
 	}
 
 	@Override
@@ -269,14 +362,14 @@ public class Filial implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Filial [fil_codigo=" + fil_codigo + ", fil_descricao="
-				+ fil_descricao + "]";
+		return "Filial [fil_codigo=" + fil_codigo + ", fil_nome="
+				+ fil_nome + "]";
 	}
 
 	public JSONObject getJson() {
 		Map<Object, Object> map = new HashMap<Object, Object>();
 		map.put("fil_codigo", fil_codigo);
-		map.put("fil_descricao", fil_descricao);
+		map.put("fil_nome", fil_nome);
 		return new JSONObject(map);
 	}
 }

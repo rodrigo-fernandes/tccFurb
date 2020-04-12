@@ -28,8 +28,12 @@ public enum Permissao {
 	DIARIO_EDITAR("DIARIO_EDITAR", "Diario - Editar"),
 	DIARIO_EXCLUIR("DIARIO_EXCLUIR", "Diario - Excluir"),
 	
-	
 
+	CRIANCA_ACESSAR("CRIANCA_ACESSAR", "Criança - Acessar"),
+	CRIANCA_NOVO("CRIANCA_NOVO", "Criança - Novo"),
+	CRIANCA_EDITAR("CRIANCA_EDITAR", "Criança - Editar"),
+	CRIANCA_EXCLUIR("CRIANCA_EXCLUIR", "Criança - Excluir"),	
+	
 
 	CLIENTE_ACESSAR("CLIENTE_ACESSAR", "Cliente - Acessar"),
 	CLIENTE_NOVO("CLIENTE_NOVO", "Cliente - Novo"),

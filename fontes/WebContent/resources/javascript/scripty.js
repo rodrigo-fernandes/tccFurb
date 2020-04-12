@@ -15,7 +15,7 @@ function reloadPage() {
 
 function validaDescricao(descricao) {
 	if (descricao === ' ' || descricao.trim() === '') {
-		return "Descri��o n�o foi informada.";
+		return "Descrição não foi informada.";
 	}
 	 else {
 		return descricao;
@@ -170,15 +170,15 @@ function ocultarMenu() {
 		PrimeFaces.locales['pt'] = {
 			closeText : 'Fechar',
 			prevText : 'Anterior',
-			nextText : 'Pr�ximo',
-			currentText : 'Come�o',
+			nextText : 'Próximo',
+			currentText : 'Começo',
 			monthNames : [ 'Janeiro', 'Fevereiro', 'Marcio', 'Abril', 'Maio',
 					'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro',
 					'Dezembro' ],
 			monthNamesShort : [ 'Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul',
 					'Ago', 'Set', 'Out', 'Nov', 'Dez' ],
-			dayNames : [ 'Domingo', 'Segunda', 'Ter�a', 'Quarta', 'Quinta',
-					'Sexta', 'S�bado' ],
+			dayNames : [ 'Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta',
+					'Sexta', 'Sábado' ],
 			dayNamesShort : [ 'Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'S�b' ],
 			dayNamesMin : [ 'D', 'S', 'T', 'Q', 'Q', 'S', 'S' ],
 			weekHeader : 'Semana',
@@ -192,7 +192,7 @@ function ocultarMenu() {
 			minuteText : 'Minuto',
 			secondText : 'Segundo',
 			ampm : false,
-			month : 'M�s',
+			month : 'Mês',
 			week : 'Semana',
 			day : 'Dia',
 			allDayText : 'Todo o Dia'
@@ -363,7 +363,7 @@ function addBairroSelecionadoEntidade(objeto) {
 function addFilialSelecionadoEntidade(objeto) {
 	var filialObj = JSON.parse(objeto);
 	$("#fil_codigo").val(filialObj.fil_codigo);
-	$("#fil_descricao").val(validaDescricao(filialObj.fil_descricao));
+	$("#fil_nome").val(validaDescricao(filialObj.fil_nome));
 	addFilialEntidade(''+filialObj.fil_codigo);
 }
 
@@ -375,16 +375,20 @@ function addFilialSelecionadoEntidade(objeto) {
 function addFilialSelecionadoFunc(objeto) {
 	var filialObj = JSON.parse(objeto);
 	$("#fil_codigo").val(filialObj.fil_codigo);
-	$("#fil_descricao").val(validaDescricao(filialObj.fil_descricao));
+	$("#fil_nome").val(validaDescricao(filialObj.fil_nome));
 	addFilialFunc(''+filialObj.fil_codigo);
 }
 
 function addFilialSelecionadoComissao(objeto) {
 	var filialObj = JSON.parse(objeto);
 	$("#fil_codigo").val(filialObj.fil_codigo);
-	$("#fil_descricao").val(validaDescricao(filialObj.fil_descricao));
+	$("#fil_nome").val(validaDescricao(filialObj.fil_nome));
 	addFilialComissao(''+filialObj.fil_codigo);
 }
+
+
+
+
 
 /**
  * Add cidade selecionada na tela de filial
@@ -482,12 +486,12 @@ function addCidadeSelecionadoFunc(objeto) {
 function pesquisarFilialPerderFoco(id) {
 	if (id.trim() != '') {
 	 statusDialog.show();
-	 $("#fil_descricao").val('');
+	 $("#fil_nome").val('');
 	 $.get("findFilial?codFilial=" + id, function(resposta) {
 	        if (resposta != 'erro' && resposta.trim() != ''){
 	        	var filialObj = JSON.parse(resposta);
 	        	$("#fil_codigo").val(filialObj.fil_codigo);
-	        	$("#fil_descricao").val(validaDescricao(filialObj.fil_descricao));
+	        	$("#fil_nome").val(validaDescricao(filialObj.fil_nome));
 	        }
 	   })
 	   .always(function() { 
@@ -495,6 +499,8 @@ function pesquisarFilialPerderFoco(id) {
 		});
 	}
 }
+
+
 
 
 function pesquisarResponsavelPerderFoco(id) {
@@ -741,7 +747,7 @@ function addCriancaFilial(id) {
 function addCriancaSelecionadoFilial(objeto) {
 	var filialObj = JSON.parse(objeto);
 	$("#fil_codigo").val(filialObj.fil_codigo);
-	$("#fil_descricao").val(validaDescricao(filialObj.fil_descricao));
+	$("#fil_nome").val(validaDescricao(filialObj.fil_nome));
 	addCriancaFilial(''+filialObj.fil_codigo);
 }
 
@@ -851,7 +857,7 @@ function addFilialEntidade(id) {
 	if (id.trim() != '') {
 		 $.get("addFilialEntidade?codFilial=" + id);
 	}
-} 
+}
 
 
 function addResponsavelTitulo(id) {
@@ -871,7 +877,8 @@ function addFilialFunc(id) {
 	if (id.trim() != '') {
 		 $.get("addFilialFunc?codFilial=" + id);
 	}
-} 
+}
+
 
 function addFilialComissao(id) {
 	if (id.trim() != '') {

@@ -28,9 +28,131 @@
 						</p:row>
 					</p:column>
 					<p:column />
+					
+					
 
+					<p:column id="collabelDataCriancaNew">
+						<p:row>
+							<h:outputLabel for="fil_datacadastro"
+								value="Data do Cadastroo : " id="labelDataNasc" />
+						</p:row>
+					</p:column>
+					<p:column id="colent_dataCriancaNew">
+						<p:row >
+							<p:calendar locale="pt" showButtonPanel="true" showOn="button" 
+								styleClass="calendar" pattern="dd/MM/yyyy HH:mm:ss" readonlyInput="true"
+								navigator="true" id="fil_datacadastro"
+								value="#{filialBeanView.objetoSelecionado.fil_datacadastro}" />
+						</p:row>
+					</p:column>
+					<p:column id="colmsgent_dataCriancaNew">
+						<p:row>
+							<p:message for="fil_datacadastro"
+							 id="msgent_datacadastro" />
+						</p:row>
+					</p:column>
+					
+					
+					<p:column>
+						<p:row>
+							<h:outputLabel for="fil_nome" id="labelNome"
+								value="Nome * : " />
+						</p:row>
+					</p:column>
+					<p:column>
+						<p:row>
+							<p:inputText id="fil_nome"
+								value="#{filialBeanView.objetoSelecionado.fil_nome}"
+								required="true" requiredMessage="Informe o campo Nome."
+								maxlength="100" styleClass="estyleInputName"  />
+						</p:row>
+					</p:column>					
+					
+					<p:column />
+					
+					<p:column>
+						<p:row>
+							<h:outputLabel for="fil_rg" id="labelCri_rg"
+								value="RG : " />
+						</p:row>
+					</p:column>
+					<p:column>
+						<p:row>
+							<p:inputMask id="fil_rg" mask="9999999"
+								value="#{filialBeanView.objetoSelecionado.fil_rg}"
+								required="false" requiredMessage="Informe o campo RG."
+								maxlength="100" styleClass="estiloIdCastro" />
+						</p:row>
+					</p:column>
+					<p:column>
+						<p:row>
+							<p:message for="fil_rg" />
+						</p:row>
+					</p:column>
+					
+					<p:column>
+						<p:row>
+							<h:outputLabel for="fil_cpf" id="labelCri_cpf"
+								value="CPF : " />
+						</p:row>
+					</p:column>
+					<p:column>
+						<p:row>
+							<p:inputMask id="fil_cpf" mask="999.999.999-99"
+								value="#{filialBeanView.objetoSelecionado.fil_cpf}"
+								required="false" requiredMessage="Informe o campo CPF."
+								maxlength="100" styleClass="estiloIdCastro" />
+						</p:row>
+					</p:column>
+					<p:column>
+						<p:row>
+							<p:message for="fil_cpf" />
+						</p:row>
+					</p:column>		
+					
+					
+					
+					<p:column> 
+						<p:row>
+							<h:outputLabel for="fil_datanascimento"
+								value="Data de nascimento : " id="labelDataNascimento" />
+						</p:row>
+					</p:column>
+					<p:column>
+						<p:row>
+							<p:calendar locale="pt" showButtonPanel="true" showOn="button"
+								styleClass="calendar" pattern="dd/MM/yyyy" readonlyInput="true"
+								navigator="true" id="fil_datanascimento"
+								value="#{filialBeanView.objetoSelecionado.fil_datanascimento}" />
+						</p:row>
+					</p:column>
+					<p:column>
+						<p:row>
+							<p:message for="fil_datanascimento" />
+						</p:row>
+					</p:column>			
+					
+					
+					<p:column>
+						<p:row>
+							<h:outputLabel for="fil_observacao" id="labelObservacao"
+								value="Observação : " />
+						</p:row>
+					</p:column>
+					<p:column>
+						<p:row>
+							<p:inputTextarea id="fil_observacao" autoResize="true"
+								style="height:60px;width:502px;"
+								value="#{filialBeanView.objetoSelecionado.fil_observacao}"
+								required="false" requiredMessage="Informe o campo observação."
+								maxlength="5000" styleClass="estyleInputObservacao"  />
+						</p:row>
+					</p:column>		
+					
+					<p:column/>
+					
 
-
+					<!-- 
 					<p:column>
 						<p:row>
 							<h:outputLabel for="filDescricao" id="labelDescricao"
@@ -50,7 +172,7 @@
 							<p:message for="filDescricao" />
 						</p:row>
 					</p:column>
-
+ 					-->
 
 
 					<p:column>
@@ -98,6 +220,7 @@
 
 
 
+					<!-- 
 					<p:column>
 						<p:row>
 							<h:outputLabel for="fil_fax" id="labelfil_fax" value="Fax : " />
@@ -115,7 +238,7 @@
 						<p:row>
 							<p:message for="fil_fax" />
 						</p:row>
-					</p:column>
+					</p:column>  -->
 
 
 
@@ -205,7 +328,7 @@
 						</p:row>
 					</p:column>
 					
-					
+					<!--
 					<p:column>
 						<p:row>
 							<h:outputLabel for="fil_statuscomissao" id="labelStatusComissao"
@@ -227,6 +350,7 @@
 					</p:column>
 
 
+					  
 					<p:column>
 						<p:row>
 							<h:outputLabel for="fil_enderecoemail" id="labelEmail"
@@ -247,10 +371,11 @@
 						<p:row>
 							<p:message for="fil_enderecoemail" />
 						</p:row>
-					</p:column>
+					</p:column>-->
 				
 				</p:panelGrid>
 				
+				<!-- 
 				<div class="espacoBranco" />
 				
 				<p:fieldset legend="Enviar e-mail">
@@ -418,6 +543,7 @@
 				
 				</p:panelGrid>
 			  </p:fieldset>
+			   -->
 
 			</p:panel>
 

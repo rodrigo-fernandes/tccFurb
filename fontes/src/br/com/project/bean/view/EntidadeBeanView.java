@@ -71,7 +71,7 @@ public class EntidadeBeanView extends BeanManagedViewAbstract {
 
 	@Autowired
 	private FilialController filialController;
-
+	
 	@Autowired
 	private EntidadeEntidadeController entidadeEntidadeController;
 
@@ -324,7 +324,7 @@ public class EntidadeBeanView extends BeanManagedViewAbstract {
 							"fil_codigo"));
 		}
 	}
-
+	
 	@Override
 	protected InterfaceCrud<Entidade> getController() {
 		return entidadeController;

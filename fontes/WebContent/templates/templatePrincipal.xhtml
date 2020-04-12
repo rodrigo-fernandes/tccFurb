@@ -128,7 +128,18 @@
 							<p:menuitem value="Diario" id="menudiario"
 								onclick="redirecionarPage('#{request.contextPath}','/cadastro/', 'find_diario')"
 								ajax="true" />
-						</sec:ifAnyGranted>  
+						</sec:ifAnyGranted>
+						
+						
+						<!-- 
+						<sec:ifAnyGranted roles="CRIANCA_ACESSAR, ADMIN">	 
+							<p:menuitem value="Criança New" id="menucriancaNew"
+								onclick="redirecionarPage('#{request.contextPath}','/cadastro/', 'find_criancaNew')"
+								ajax="true" />
+						</sec:ifAnyGranted>
+						 -->						
+						
+						  
 						
 						<sec:ifAnyGranted roles="CLIENTE_ACESSAR, ADMIN">
 							<p:menuitem value="Pais" id="menucliente"
@@ -137,11 +148,12 @@
 					     </sec:ifAnyGranted>			
 								
 						 
+						 <!-- 
 						<sec:ifAnyGranted roles="FORNECEDOR_ACESSAR, ADMIN">		
 							<p:menuitem value="Criança" id="menufornecedor"
 								onclick="redirecionarPage('#{request.contextPath}','/cadastro/', 'find_crianca')"
 								ajax="true" />
-						</sec:ifAnyGranted>
+						</sec:ifAnyGranted>  -->
 					   
 						
 						<sec:ifAnyGranted roles="FUNCIONARIO_ACESSAR, ADMIN">		
@@ -150,19 +162,19 @@
 								ajax="true" />			
 						</sec:ifAnyGranted>		
 						
-						<!-- Desativaco do menu Empreend iamento  -->
+						<!-- Desativaco do menu Empreend iamento 
 						<sec:ifAnyGranted roles="EMPREENDIMENTO_ACESSAR, ADMIN">	
 							<p:menuitem value="Empreendimento" id="menuempreendimento"
 								onclick="redirecionarPage('#{request.contextPath}','/cadastro/', 'find_empreendimento')"
 								ajax="true" />	
-						</sec:ifAnyGranted>		
+						</sec:ifAnyGranted>		 -->
 								
-						<!-- Desativaco do menu Filial 
+						<!-- Desativaco do menu Filial --> 
 						<sec:ifAnyGranted roles="FILIAL_ACESSAR, ADMIN">		
-							<p:menuitem value="Filial" id="menufilial"
+							<p:menuitem value="Criança" id="menufilial"
 								onclick="redirecionarPage('#{request.contextPath}','/cadastro/', 'find_filial')"
 								ajax="true" />
-						</sec:ifAnyGranted>		-->
+						</sec:ifAnyGranted>		
 								
 						<!-- Desativaco do menu Produto 
 						<sec:ifAnyGranted roles="PRODUTO_ACESSAR, ADMIN">		

@@ -136,7 +136,8 @@
 	<bean id="tituloController" class="br.com.project.geral.controller.TituloController" />
 	<bean id="loginController" class="br.com.project.geral.controller.LoginController" />
 	<bean id="comissaoFuncionarioFilialController" class="br.com.project.geral.controller.ComissaoFuncionarioFilialController" />
-	<bean id="diarioController" class="br.com.project.geral.controller.DiarioController" />  
+	<bean id="diarioController" class="br.com.project.geral.controller.DiarioController" />
+    <bean id="CriancaNewController" class="br.com.project.geral.controller.CriancaNewController" />
 
 
 	<!-- Repository -->
@@ -153,6 +154,7 @@
 	<bean id="repositoryLogin" class="br.com.dao.implementacao.DaoLogin" />
 	<bean id="repositoryComissaoFuncionarioFilial" class="br.com.dao.implementacao.DaoComissaoFuncionarioFilial" />
 	<bean id="repositoryDiario" class="br.com.dao.implementacao.DaoDiario" />
+	<bean id="repositoryCriancaNew" class="br.com.dao.implementacao.DaoCriancaNew" />
 
 
 	<!-- Services -->
@@ -175,6 +177,7 @@
 	<bean id="srvSendEmail" class="br.com.srv.implementacao.SrvSendEmailImpl" />
 	
 	<bean id="srvDiario" class="br.com.srv.implementacao.SrvDiarioImpl" />
+	<bean id="srvCriancaNew" class="br.com.srv.implementacao.SrvCriancaNewImpl" />
 	
 
 </beans>

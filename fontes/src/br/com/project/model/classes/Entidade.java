@@ -136,7 +136,7 @@ public class Entidade implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date ent_datanascimento;
 
-	@IdentificaCampoPesquisa(descricaoCampo = "Filial", campoConsulta = "fil_codigo.fil_descricao")
+	@IdentificaCampoPesquisa(descricaoCampo = "Filial", campoConsulta = "fil_codigo.fil_nome")
 	@ManyToOne(fetch = FetchType.EAGER, cascade = { CascadeType.MERGE,
 			CascadeType.PERSIST })
 	@ForeignKey(name = "fil_codigo_fk")
