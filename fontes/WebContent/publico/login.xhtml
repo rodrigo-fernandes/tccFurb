@@ -6,86 +6,101 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title><ui:insert name="titulo">RF Sistemas</ui:insert>
+	<title><ui:insert name="titulo">Cuida Aí</ui:insert>
 	</title>
 	<h:outputScript name="jquery.js" library="primefaces/jquery" />
 	<h:outputStylesheet name="estilo.css" library="css" />
 	<h:outputScript name="scripty.js" library="javascript" />
+	
+	<!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	
+	
 </h:head>
 
-<h:body>
+<h:body styleClass="cyan lighten-5">
 
-	
-	<div id="formlogin">
-			<br />
-			<h:panelGroup rendered="#{!empty param.login_error}" >
+	<div class="valign-wrapper" id="login-page">
+		<div class="container">
+			<div class="center-align">
+				<div class="row">
+					<div class="col s6 offset-s3">
+						<div class="card">
+							<div class="card-content">
+								<img class="responsive-img" style="max-width: 64px;" src="" />
+								<div class="">
+									<div id="">
+										<br />
+										<h:panelGroup rendered="#{!empty param.login_error}" >
 			
-			<!--Motivo: #{SPRING_SECURITY_LAST_EXCEPTION.message}  -->
-			
-			  <h:outputLabel rendered="#{SPRING_SECURITY_LAST_EXCEPTION.message == 'Bad credentials'}" >
-				<span class="estiloSpan" style="text-align: center;">Permissão Negada, login ou senha incorretos.
-				</span>
-			  </h:outputLabel> 
-			  
-			  <h:outputLabel rendered="#{SPRING_SECURITY_LAST_EXCEPTION.message == 'Maximum sessions of 1 for this principal exceeded'}">
-				<span class="estiloSpan">Você está logado em outra sessão.
-				</span>
-				<h:commandButton value="Encerrar" style="height:40px;width:100px;background:#CDCDC1;border: 1px;"
-				 onclick="invalidarSession('#{request.contextPath}', '/publico/invalidateSession')"/>
-			  </h:outputLabel>
+											<!--Motivo: #{SPRING_SECURITY_LAST_EXCEPTION.message}  -->
+											
+											<h:outputLabel rendered="#{SPRING_SECURITY_LAST_EXCEPTION.message == 'Bad credentials'}" >
+												<span class="estiloSpan" style="text-align: center;">Permissão Negada, login ou senha incorretos.</span>
+											</h:outputLabel> 
+											  
+											<h:outputLabel rendered="#{SPRING_SECURITY_LAST_EXCEPTION.message == 'Maximum sessions of 1 for this principal exceeded'}">
+												<span class="estiloSpan">Você está logado em outra sessão.	</span>
+											<h:commandButton value="Encerrar" style="height:40px;width:100px;background:#CDCDC1;border: 1px;"
+													 onclick="invalidarSession('#{request.contextPath}', '/publico/invalidateSession')"/>
+											</h:outputLabel>
+											
+										</h:panelGroup>
+										<br/>
+												
+					
+										<form id="login-form" method="post"
+											onsubmit="return validarSenhaLogin();"
+											name="formulario" 
+											action="#{request.contextPath}/j_spring_security_check" >
+					
+										<p:growl autoUpdate="true"/>
+											<div class="row">
+												<div class="col s12 input-field">
+													<h:inputText type="text" name="j_username" id="j_username" />
+													<h:outputLabel for="j_username" value="Usuário"/>
+												</div>
 				
-			</h:panelGroup>
-			<br/>
-					
-					
-			
-			<form id="formulario" method="post"
-					onsubmit="return validarSenhaLogin();"
-					name="formulario" 
-					action="#{request.contextPath}/j_spring_security_check" >
-			
-			
-				<span style="display: block; 
-				     padding-top: 2px; 
-					 text-align: center" >
-				<span style="display: inline-block;
-					 width: 50px; text-align: left;">
-					 Login
-				</span>
-					<p:inputText type="text" name="j_username" id="j_username"/>
-				</span> 
-				<span style="display: block;
-					 padding-top: 2px; text-align: center">
-				<span style="display: inline-block;
-					 width: 50px; text-align: left">
-					 Senha
-				</span>
-					<p:inputText type="password" name="j_password" id="j_password"/>
-				</span> 
-				<span style="display: block;
-					 padding-top: 2px; text-align: center">
-				<span id="enviando"></span>
-					<button type="submit" class="blue" style="height:40px;width:100px;background:#CDCDC1;border: 1px;border-radius:20px;"
-						id="buttonLogin">
-						Entrar
-				 	</button>
-				</span>
-			</form>
-<script type="text/javascript">
+												<div class="col s12 input-field">
+													<h:inputSecret type="password" name="j_password" id="j_password"/>
+													<h:outputLabel for="j_password" value="Senha"/>
+												</div>
+												
+												<div class="col s12 input-field" id="enviando">
+													<button type="submit" value="Login" class="btn btn-large" id="buttonLogin">Login</button>
+												</div>				
+				
+											</div>
+				
+										</form>					
 
-	$("#j_username").focus(); 
-
-	$.get("atualizarBanco", function(resposta) {
-		var filialObj = JSON.parse(resposta);
-		if (filialObj.sucess == 'error') {
-			alert("Erro ao efetuar atualizações.");
-			document.location = '#{request.contextPath}' + '/error/error.jsf'
-		}
-	}).always(function(resposta) {
-		$("#j_username").focus();
-	});
-	
-</script>
+			
+										<script type="text/javascript">
+										
+											$("#j_username").focus(); 
+										
+											$.get("atualizarBanco", function(resposta) {
+												var filialObj = JSON.parse(resposta);
+												if (filialObj.sucess == 'error') {
+													alert("Erro ao efetuar atualizações.");
+													document.location = '#{request.contextPath}' + '/error/error.jsf'
+												}
+											}).always(function(resposta) {
+												$("#j_username").focus();
+											});
+											
+										</script>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </h:body>
 </html>
