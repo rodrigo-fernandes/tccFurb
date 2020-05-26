@@ -13,15 +13,13 @@
 		<h:form id="formCadastro" prependId="false" >
 		 <c:set var="isCadastro" value="true" scope="view"/>
 		 
-			<p:panel header="Cadastro de Diário" id="panelCadastro">
+			<p:panel header="Cadastro de Medicamentos" id="panelCadastro">
 			
 				<div class="espacoBranco" />
 				<font color="red">Campo obrigatório *</font>
 				<div class="espacoBranco" />
 			
-				<h:panelGrid id="gridDiario" columns="3">
-				
-				
+				<h:panelGrid id="gridCriancaMedicamento" columns="3">
 				
 					<p:column>
 						<p:row>
@@ -32,37 +30,37 @@
 					<p:column>
 						<p:row>
 							<p:inputText id="id" styleClass="estiloIdCastro"
-								value="#{diarioBeanView.objetoSelecionado.dia_codigo}"
+								value="#{criancaMedicamentoBeanView.objetoSelecionado.cmd_codigo}"
 								readonly="true" />
 						</p:row>
 					</p:column>
 					
 					<p:column/>
 					
-					<p:column id="collabelDataDiario">
+					<p:column id="collabelDataMedicamento">
 						<p:row>
-							<h:outputLabel for="dia_datahora"
-								value="Data do Diário : " id="labelDataNasc" />
+							<h:outputLabel for="cmd_datahora"
+								value="Data do cadastro : " id="labelDatahora" />
 						</p:row>
 					</p:column>
-					<p:column id="colent_datadiario">
+					<p:column id="colent_datahora">
 						<p:row >
 							<p:calendar locale="pt" showButtonPanel="true" showOn="button" 
 								styleClass="calendar" pattern="dd/MM/yyyy HH:mm:ss" readonlyInput="true"
-								navigator="true" id="dia_datahora"
-								value="#{diarioBeanView.objetoSelecionado.dia_datahora}" />
+								navigator="true" id="cmd_datahora"
+								value="#{criancaMedicamentoBeanView.objetoSelecionado.cmd_datahora}" />
 						</p:row>
 					</p:column>
-					<p:column id="colmsgent_datanascimento">
+					<p:column id="colmsgent_datahora">
 						<p:row>
-							<p:message for="dia_datahora"
-							 id="msgent_datanascimento" />
+							<p:message for="cmd_datahora"
+							 id="msgent_datahora" />
 						</p:row>
 					</p:column>
-
+					
 					<p:column>
 						<p:row>
-							<h:outputLabel for="fil_codigo" value="Criança * : "
+							<h:outputLabel for="fil_codigo" value="Criança : "
 								id="labelIdFilial" />
 						</p:row>
 					</p:column>
@@ -70,7 +68,7 @@
 						<p:row>
 							<p:inputText id="fil_codigo" styleClass="estiloIdCastro"
 								onblur="pesquisarFilialPerderFoco(this.value);addCriancaFilial(this.value);"
-								value="#{diarioBeanView.objetoSelecionado.fil_codigo}"
+								value="#{criancaMedicamentoBeanView.objetoSelecionado.fil_codigo}"
 								immediate="false" required="true"
 								requiredMessage="Informe a criança." />
 							<p:commandButton id="buttonPesquisaFilial" icon="imgPesquisa"
@@ -80,7 +78,7 @@
 								update=":formTemplate:filialDialog"								
 								process="@this" styleClass="buttonPesquisa" />
 							<p:inputText id="fil_nome" readonly="true" immediate="true"
-								value="#{diarioBeanView.objetoSelecionado.fil_codigo.fil_nome}"
+								value="#{criancaMedicamentoBeanView.objetoSelecionado.fil_codigo.fil_nome}"
 								required="true" requiredMessage="Informe o campo criança"
 								style="width: 350px;" />
 						</p:row>
@@ -90,36 +88,55 @@
 							<p:message for="fil_codigo" />
 						</p:row>
 					</p:column>					
-					
+	
 					<p:column>
 						<p:row>
-							<h:outputLabel for="dia_descricao" id="labelDescricao"
+							<h:outputLabel for="cmd_descricao" id="labelDescricao"
 								value="Descrição * : " />
 						</p:row>
 					</p:column>
 					<p:column>
 						<p:row>
-							<p:inputTextarea id="dia_descricao" autoResize="true"
-								style="height:150px;width:502px;"
-								value="#{diarioBeanView.objetoSelecionado.dia_descricao}"
+							<p:inputText id="cmd_descricao"
+								value="#{criancaMedicamentoBeanView.objetoSelecionado.cmd_descricao}"
 								required="true" requiredMessage="Informe o campo descrição."
+								maxlength="100" styleClass="estyleInputName"  />
+						</p:row>
+					</p:column>
+					
+					<p:column/>
+					
+					<p:column>
+						<p:row>
+							<h:outputLabel for="cmd_observacao" id="labelObservacao"
+								value="Observação * : " />
+						</p:row>
+					</p:column>
+					<p:column>
+						<p:row>
+							<p:inputTextarea id="cmd_observacao"
+								value="#{criancaMedicamentoBeanView.objetoSelecionado.cmd_observacao}"
+								required="true" requiredMessage="Informe o campo observação."
+								style="height:150px;width:502px;"
 								maxlength="5000" styleClass="estyleInputName"  />
 						</p:row>
 					</p:column>
 
 				</h:panelGrid>
 			</p:panel>
-
+			
+			
 			<div class="espacoBranco" />
 			
 			
+			
 		<util:botoesCrud 
-				managedBeanView="#{diarioBeanView}"
+				managedBeanView="#{criancaMedicamentoBeanView}"
 				camposReload=":formTemplate:msg, tableResult" 
-				botaoNovo = "#{contextoBean.possuiAcesso('DIARIO_NOVO', 'ADMIN')}"
-				botaoSalvar = "#{contextoBean.possuiAcesso('DIARIO_NOVO', 'ADMIN') and diarioBeanView.objetoSelecionado.dia_codigo == null}"
-				botaoAtualizar = "#{contextoBean.possuiAcesso('DIARIO_EDITAR', 'ADMIN') and diarioBeanView.objetoSelecionado.dia_codigo != null}"
-				botaoExcluir = "#{contextoBean.possuiAcesso('DIARIO_EXCLUIR', 'ADMIN')}"/>
+				botaoNovo = "#{contextoBean.possuiAcesso('CRIANCA_MEDICAMENTO_NOVO', 'ADMIN')}"
+				botaoSalvar = "#{contextoBean.possuiAcesso('CRIANCA_MEDICAMENTO_NOVO', 'ADMIN') and criancaMedicamentoBeanView.objetoSelecionado.cmd_codigo == null}"
+				botaoAtualizar = "#{contextoBean.possuiAcesso('CRIANCA_MEDICAMENTO_EDITAR', 'ADMIN') and criancaMedicamentoBeanView.objetoSelecionado.cmd_codigo != null}"
+				botaoExcluir = "#{contextoBean.possuiAcesso('CRIANCA_MEDICAMENTO_EXCLUIR', 'ADMIN')}"/>
 				
 				
 			
@@ -128,15 +145,15 @@
 		</h:form>
 		
 		<script type="text/javascript" charset="UTF-8">
-			addFocoAoCampo('diario');
-			permitirApenasNumero('ent_codigo');
+			addFocoAoCampo('criancaMedicamento');
+			permitirApenasNumero('fil_codigo');
 			gerenciaTeclaEnter();
 
 		</script>
 		
 		<div class="espacoBranco" />
 
-		<p:dataTable id="tableResult" value="#{diarioBeanView.list}" rendered="#{diarioBeanView.list.list.size() > 0}"
+		<p:dataTable id="tableResult" value="#{criancaMedicamentoBeanView.list}" rendered="#{criancaMedicamentoBeanView.list.list.size() > 0}"
 			var="objeto" rows="10" paginatorPosition="bottom" paginator="true"
 			lazy="true"
 			emptyMessage="Não existem valores para exibição."
@@ -144,7 +161,7 @@
 								   {PreviousPageLink} {PageLinks} 
 	 							   {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
 
-			<ui:include src="/resources/components/colunasDataTableDiario.xhtml" />
+			<ui:include src="/resources/components/colunasDataTableCriancaMedicamento.xhtml" />
 
 		</p:dataTable>
 		

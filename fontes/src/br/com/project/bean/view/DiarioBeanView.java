@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.primefaces.event.SelectEvent;
 import org.primefaces.event.UnselectEvent;
 import org.primefaces.model.StreamedContent;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,9 +18,7 @@ import br.com.framework.interfac.crud.InterfaceCrud;
 import br.com.project.bean.geral.BeanManagedViewAbstract;
 import br.com.project.carregamento.lazy.CarregamentoLazyListForObject;
 import br.com.project.geral.controller.DiarioController;
-import br.com.project.geral.controller.EntidadeController;
 import br.com.project.geral.controller.FilialController;
-import br.com.project.model.classes.Bairro;
 import br.com.project.model.classes.Diario;
 import br.com.project.model.classes.Filial;
 

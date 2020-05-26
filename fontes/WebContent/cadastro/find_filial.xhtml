@@ -11,7 +11,7 @@
 <ui:composition template="/templates/templatePrincipal.xhtml">
 	<ui:define name="corpo">
 		<util:pesquisa managedBeanView="#{filialBeanView}"
-			nomePesquisa="Pesquisa de Filial"
+			nomePesquisa="Pesquisa de Criança"
 			colunasGridDataTableList="/resources/components/colunasDataTableFilial.xhtml"
 			ocultaNovo = "#{!contextoBean.possuiAcesso('FILIAL_NOVO', 'ADMIN')}"
 			exibirBotaoAdd="false"

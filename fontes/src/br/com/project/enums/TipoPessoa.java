@@ -2,7 +2,7 @@ package br.com.project.enums;
 
 public enum TipoPessoa {
 
-	TIPO_PESSOA_FISICA("Fisica"), TIPO_PESSOA_JURIDICA("Juridica");
+	TIPO_PESSOA_FISICA("Responsável"), TIPO_PESSOA_JURIDICA("Professor");
 
 	private String tipo = "";
 

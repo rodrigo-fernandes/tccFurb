@@ -138,6 +138,7 @@
 	<bean id="comissaoFuncionarioFilialController" class="br.com.project.geral.controller.ComissaoFuncionarioFilialController" />
 	<bean id="diarioController" class="br.com.project.geral.controller.DiarioController" />
     <bean id="CriancaNewController" class="br.com.project.geral.controller.CriancaNewController" />
+    <bean id="CriancaMedicamentoController" class="br.com.project.geral.controller.CriancaMedicamentoController" />
 
 
 	<!-- Repository -->
@@ -155,6 +156,7 @@
 	<bean id="repositoryComissaoFuncionarioFilial" class="br.com.dao.implementacao.DaoComissaoFuncionarioFilial" />
 	<bean id="repositoryDiario" class="br.com.dao.implementacao.DaoDiario" />
 	<bean id="repositoryCriancaNew" class="br.com.dao.implementacao.DaoCriancaNew" />
+	<bean id="repositoryCriancaMedicamento" class="br.com.dao.implementacao.DaoCriancaMedicamento" />
 
 
 	<!-- Services -->
@@ -178,6 +180,7 @@
 	
 	<bean id="srvDiario" class="br.com.srv.implementacao.SrvDiarioImpl" />
 	<bean id="srvCriancaNew" class="br.com.srv.implementacao.SrvCriancaNewImpl" />
+	<bean id="srvCriancaMedicamento" class="br.com.srv.implementacao.SrvCriancaMedicamentoImpl" />
 	
 
 </beans>

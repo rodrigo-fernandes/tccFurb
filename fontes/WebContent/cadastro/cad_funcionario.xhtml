@@ -12,7 +12,11 @@
 	<ui:define name="corpo">
 		<h:form id="formCadastro" prependId="false">
 		<c:set var="isCadastro" value="true" scope="view"/>
-			<p:panel header="Cadastro de Funcionário" id="panelCadastro">
+			<p:panel header="Cadastro de Usuários" id="panelCadastro">
+			
+				<div class="espacoBranco" />
+				<font color="red">Campo obrigatório *</font>
+				<div class="espacoBranco" />
 
 				<p:panelGrid id="gridFunc" columns="3">
 					<p:column>
@@ -42,7 +46,6 @@
 					</p:column>
 					<p:column />
 
-					<!-- Desativacao do tipo de pessoa
 					<p:column>
 						<p:row>
 							<h:outputLabel for="ent_tipopessoa" id="labelTipoPessoa"
@@ -63,7 +66,7 @@
 							<p:message for="ent_tipopessoa" />
 						</p:row>
 					</p:column>
- 					-->
+ 					
 
 					<p:column>
 						<p:row>
@@ -84,29 +87,6 @@
 							<p:message for="ent_nomefantasia" />
 						</p:row>
 					</p:column>
-
-					<!-- Desativacao da Razao Social
-					<p:column>
-						<p:row>
-							<h:outputLabel for="ent_razao" id="labelRazaoSocial"
-								value="Razão social : " />
-						</p:row>
-					</p:column>
-					<p:column>
-						<p:row>
-							<p:inputText id="ent_razao"
-								value="#{funcionarioBeanView.objetoSelecionado.ent_razao}"
-								required="false"
-								requiredMessage="Informe o campo nome razão social."
-								maxlength="100" styleClass="estyleInputName" />
-						</p:row>
-					</p:column>
-					<p:column>
-						<p:row>
-							<p:message for="ent_razao" />
-						</p:row>
-					</p:column>
-					 -->
 					
 					<p:column> 
 						<p:row>
@@ -428,7 +408,7 @@
 					<p:column>
 						<p:row>
 							<p:inputTextarea id="ent_observacao" autoResize="true"
-								style="height:60px;width:502px;"
+								style="height:150px;width:502px;"
 								value="#{funcionarioBeanView.objetoSelecionado.ent_observacao}"
 								immediate="true" required="false" maxlength="250"
 								requiredMessage="Informe a observação." />

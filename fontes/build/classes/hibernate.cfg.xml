@@ -40,7 +40,8 @@
 		<mapping class="br.com.project.model.classes.InformacaoRevisao" />
 		<mapping class="br.com.project.model.classes.SendEmail" />
 		<mapping class="br.com.project.model.classes.Diario" />
-		<mapping class="br.com.project.model.classes.Crianca" />		
+		<mapping class="br.com.project.model.classes.Crianca" />
+		<mapping class="br.com.project.model.classes.CriancaMedicamento" />		
 
 		<listener class="org.hibernate.envers.event.AuditEventListener"
 			type="post-insert" />

@@ -116,19 +116,27 @@
 					<sec:ifAnyGranted roles="CADASTRO_ACESSAR, ADMIN">	 
 						<p:submenu label="Cadastros" id="subMenuCadastro">
 						
-						<!-- Desativaco do menu Construtora  -->
+						<!-- Desativaco do menu Construtora  
 						<sec:ifAnyGranted roles="CONSTRUTORA_ACESSAR, ADMIN">	 
 							<p:menuitem value="Construtora" id="menuentidade"
 								onclick="redirecionarPage('#{request.contextPath}','/cadastro/', 'find_entidade')"
 								ajax="true" />
-						</sec:ifAnyGranted> 
+						</sec:ifAnyGranted> -->
 
 						<!-- menu Diario -->
 						<sec:ifAnyGranted roles="DIARIO_ACESSAR, ADMIN">	 
-							<p:menuitem value="Diario" id="menudiario"
+							<p:menuitem value="Diário" id="menudiario"
 								onclick="redirecionarPage('#{request.contextPath}','/cadastro/', 'find_diario')"
 								ajax="true" />
 						</sec:ifAnyGranted>
+
+						<!-- menu Criança Medicamento -->
+						<sec:ifAnyGranted roles="CRIANCA_MEDICAMENTO_ACESSAR, ADMIN">	 
+							<p:menuitem value="Criança Medicada" id="menucriancamedicamento"
+								onclick="redirecionarPage('#{request.contextPath}','/cadastro/', 'find_criancamedicamento')"
+								ajax="true" />
+						</sec:ifAnyGranted>
+
 						
 						
 						<!-- 
@@ -140,13 +148,13 @@
 						 -->						
 						
 						  
-						
+						<!-- 
 						<sec:ifAnyGranted roles="CLIENTE_ACESSAR, ADMIN">
 							<p:menuitem value="Pais" id="menucliente"
 								onclick="redirecionarPage('#{request.contextPath}','/cadastro/', 'find_cliente')"
 								ajax="true" />
 					     </sec:ifAnyGranted>			
-								
+							 -->	
 						 
 						 <!-- 
 						<sec:ifAnyGranted roles="FORNECEDOR_ACESSAR, ADMIN">		
@@ -157,7 +165,7 @@
 					   
 						
 						<sec:ifAnyGranted roles="FUNCIONARIO_ACESSAR, ADMIN">		
-							<p:menuitem value="Funcionário/usuário" id="menufuncionario"
+							<p:menuitem value="Usuários" id="menufuncionario"
 								onclick="redirecionarPage('#{request.contextPath}','/cadastro/', 'find_funcionario')"
 								ajax="true" />			
 						</sec:ifAnyGranted>		
