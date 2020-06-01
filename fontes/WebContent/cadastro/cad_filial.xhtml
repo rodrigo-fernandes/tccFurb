@@ -282,6 +282,148 @@
 				
 				</p:panelGrid>
 				
+				<div class="espacoBranco" />
+				<div class="espacoBranco" />
+				
+				<p:fieldset legend="comorbidade(s)" style=" padding-left: 37px;"> 
+					<p:panelGrid id="gridFilComorbidade" columns="3">
+					
+						<p:column rendered="#{filialBeanView.objetoSelecionado.fil_codigo != null}">
+							<p:row>
+								<h:outputLabel for="fil_tolerancia_lactose" value="Intolerância a Lactose : "
+									id="labelLactose" />
+							</p:row>
+						</p:column>
+						<p:column rendered="#{filialBeanView.objetoSelecionado.fil_codigo != null}">
+							<p:row>
+								<p:selectBooleanCheckbox id="fil_tolerancia_lactose"
+									value="#{filialBeanView.objetoSelecionado.fil_tolerancia_lactose}" />
+							</p:row>
+						</p:column>
+						<p:column rendered="#{filialBeanView.objetoSelecionado.fil_codigo != null}">
+							<p:row>
+								<p:message for="fil_tolerancia_lactose" />
+							</p:row>
+						</p:column>
+						
+						<p:column rendered="#{filialBeanView.objetoSelecionado.fil_codigo != null}">
+							<p:row>
+								<h:outputLabel for="fil_tolerancia_lactose" value="Intolerância a Glútem : "
+									id="labelGlutem" />
+							</p:row>
+						</p:column>
+						<p:column rendered="#{filialBeanView.objetoSelecionado.fil_codigo != null}">
+							<p:row>
+								<p:selectBooleanCheckbox id="fil_tolerancia_glutem"
+									value="#{filialBeanView.objetoSelecionado.fil_tolerancia_glutem}" />
+							</p:row>
+						</p:column>
+						<p:column rendered="#{filialBeanView.objetoSelecionado.fil_codigo != null}">
+							<p:row>
+								<p:message for="fil_tolerancia_glutem" />
+							</p:row>
+						</p:column>
+						
+						<p:column rendered="#{filialBeanView.objetoSelecionado.fil_codigo != null}">
+							<p:row>
+								<h:outputLabel for="fil_tolerancia_Amendoin" value="Intolerância a Amendoin : "
+									id="labelAmendoin" />
+							</p:row>
+						</p:column>
+						<p:column rendered="#{filialBeanView.objetoSelecionado.fil_codigo != null}">
+							<p:row>
+								<p:selectBooleanCheckbox id="fil_tolerancia_amendoin"
+									value="#{filialBeanView.objetoSelecionado.fil_tolerancia_amendoin}" />
+							</p:row>
+						</p:column>
+						<p:column rendered="#{filialBeanView.objetoSelecionado.fil_codigo != null}">
+							<p:row>
+								<p:message for="fil_tolerancia_amendoin" />
+							</p:row>
+						</p:column>
+						
+						
+						<p:column rendered="#{filialBeanView.objetoSelecionado.fil_codigo != null}">
+							<p:row>
+								<h:outputLabel for="fil_diabete_tipo_1" value="Diabete Tipo 1 : "
+									id="labelDiabete_tipo_1" />
+							</p:row>
+						</p:column>
+						<p:column rendered="#{filialBeanView.objetoSelecionado.fil_codigo != null}">
+							<p:row>
+								<p:selectBooleanCheckbox id="fil_diabete_tipo_1"
+									value="#{filialBeanView.objetoSelecionado.fil_diabete_tipo_1}" />
+							</p:row>
+						</p:column>
+						<p:column rendered="#{filialBeanView.objetoSelecionado.fil_codigo != null}">
+							<p:row>
+								<p:message for="fil_diabete_tipo_1" />
+							</p:row>
+						</p:column>
+						
+						
+						<p:column rendered="#{filialBeanView.objetoSelecionado.fil_codigo != null}">
+							<p:row>
+								<h:outputLabel for="fil_diabete_tipo_2" value="Diabete Tipo 2 : "
+									id="labelDiabete_tipo_2" />
+							</p:row>
+						</p:column>
+						<p:column rendered="#{filialBeanView.objetoSelecionado.fil_codigo != null}">
+							<p:row>
+								<p:selectBooleanCheckbox id="fil_diabete_tipo_2"
+									value="#{filialBeanView.objetoSelecionado.fil_diabete_tipo_2}" />
+							</p:row>
+						</p:column>
+						<p:column rendered="#{filialBeanView.objetoSelecionado.fil_codigo != null}">
+							<p:row>
+								<p:message for="fil_diabete_tipo_2" />
+							</p:row>
+						</p:column>
+						
+						
+						<p:column rendered="#{filialBeanView.objetoSelecionado.fil_codigo != null}">
+							<p:row>
+								<h:outputLabel for="fil_asma" value="Asma : "
+									id="labelfil_asma" />
+							</p:row>
+						</p:column>
+						<p:column rendered="#{filialBeanView.objetoSelecionado.fil_codigo != null}">
+							<p:row>
+								<p:selectBooleanCheckbox id="fil_asma"
+									value="#{filialBeanView.objetoSelecionado.fil_asma}" />
+							</p:row>
+						</p:column>
+						<p:column rendered="#{filialBeanView.objetoSelecionado.fil_codigo != null}">
+							<p:row>
+								<p:message for="fil_asma" />
+							</p:row>
+						</p:column>
+						
+						
+						<p:column rendered="#{filialBeanView.objetoSelecionado.fil_codigo != null}">
+							<p:row>
+								<h:outputLabel for="fil_bronquite" value="Bronquite : "
+									id="labelfil_bronquite" />
+							</p:row>
+						</p:column>
+						<p:column rendered="#{filialBeanView.objetoSelecionado.fil_codigo != null}">
+							<p:row>
+								<p:selectBooleanCheckbox id="fil_bronquite"
+									value="#{filialBeanView.objetoSelecionado.fil_bronquite}" />
+							</p:row>
+						</p:column>
+						<p:column rendered="#{filialBeanView.objetoSelecionado.fil_codigo != null}">
+							<p:row>
+								<p:message for="fil_bronquite" />
+							</p:row>
+						</p:column>						
+						
+											
+					
+				
+				</p:panelGrid>
+				</p:fieldset>
+				
 		
 			</p:panel>
 

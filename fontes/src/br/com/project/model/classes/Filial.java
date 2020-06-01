@@ -58,6 +58,27 @@ public class Filial implements Serializable {
 
 	@Column(length = 15)
 	private String fil_cep;
+	
+	@Column(nullable = false)
+	private Boolean fil_tolerancia_lactose = false;
+	
+	@Column(nullable = false)
+	private Boolean fil_tolerancia_glutem = false;
+	
+	@Column(nullable = false)
+	private Boolean fil_tolerancia_amendoin = false;
+	
+	@Column(nullable = false)
+	private Boolean fil_diabete_tipo_1 = false;		
+	
+	@Column(nullable = false)
+	private Boolean fil_diabete_tipo_2 = false;
+	
+	@Column(nullable = false)
+	private Boolean fil_asma = false;
+	
+	@Column(nullable = false)
+	private Boolean fil_bronquite = false;	
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@ForeignKey(name = "bai_codigo_fk")
@@ -95,10 +116,65 @@ public class Filial implements Serializable {
 	private String fil_observacao;		
 	
 	
+	public Boolean getFil_tolerancia_lactose() {
+		return fil_tolerancia_lactose;
+	}
+
+	public void setFil_tolerancia_lactose(Boolean fil_tolerancia_lactose) {
+		this.fil_tolerancia_lactose = fil_tolerancia_lactose;
+	}
+	
+
+	public Boolean getFil_tolerancia_glutem() {
+		return fil_tolerancia_glutem;
+	}
+
+	public void setFil_tolerancia_glutem(Boolean fil_tolerancia_glutem) {
+		this.fil_tolerancia_glutem = fil_tolerancia_glutem;
+	}
+
 	
 	
-	
-	
+	public Boolean getFil_tolerancia_amendoin() {
+		return fil_tolerancia_amendoin;
+	}
+
+	public void setFil_tolerancia_amendoin(Boolean fil_tolerancia_amendoin) {
+		this.fil_tolerancia_amendoin = fil_tolerancia_amendoin;
+	}
+
+
+	public Boolean getFil_diabete_tipo_1() {
+		return fil_diabete_tipo_1;
+	}
+
+	public void setFil_diabete_tipo_1(Boolean fil_diabete_tipo_1) {
+		this.fil_diabete_tipo_1 = fil_diabete_tipo_1;
+	}
+
+	public Boolean getFil_diabete_tipo_2() {
+		return fil_diabete_tipo_2;
+	}
+
+	public void setFil_diabete_tipo_2(Boolean fil_diabete_tipo_2) {
+		this.fil_diabete_tipo_2 = fil_diabete_tipo_2;
+	}
+
+	public Boolean getFil_asma() {
+		return fil_asma;
+	}
+
+	public void setFil_asma(Boolean fil_asma) {
+		this.fil_asma = fil_asma;
+	}
+
+	public Boolean getFil_bronquite() {
+		return fil_bronquite;
+	}
+
+	public void setFil_bronquite(Boolean fil_bronquite) {
+		this.fil_bronquite = fil_bronquite;
+	}
 
 	/*@Column(length = 100)
 	private String fil_enderecoemail;
