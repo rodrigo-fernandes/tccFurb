@@ -80,6 +80,15 @@ public class Filial implements Serializable {
 	@Column(nullable = false)
 	private Boolean fil_bronquite = false;	
 
+	@Column(nullable = false)
+	private Boolean fil_frutos_mar = false;
+	
+	@Column(nullable = false)
+	private Boolean fil_soja = false;
+	
+	@Column(nullable = false)
+	private Boolean fil_ovo = false;	
+
 	@ManyToOne(fetch = FetchType.EAGER)
 	@ForeignKey(name = "bai_codigo_fk")
 	@JoinColumn(name = "bai_codigo")
@@ -175,6 +184,34 @@ public class Filial implements Serializable {
 	public void setFil_bronquite(Boolean fil_bronquite) {
 		this.fil_bronquite = fil_bronquite;
 	}
+
+	public Boolean getFil_frutos_mar() {
+		return fil_frutos_mar;
+	}
+
+	public void setFil_frutos_mar(Boolean fil_frutos_mar) {
+		this.fil_frutos_mar = fil_frutos_mar;
+	}
+
+	public Boolean getFil_soja() {
+		return fil_soja;
+	}
+
+	public void setFil_soja(Boolean fil_soja) {
+		this.fil_soja = fil_soja;
+	}
+
+
+	public Boolean getFil_ovo() {
+		return fil_ovo;
+	}
+
+	public void setFil_ovo(Boolean fil_ovo) {
+		this.fil_ovo = fil_ovo;
+	}
+
+
+
 
 	/*@Column(length = 100)
 	private String fil_enderecoemail;

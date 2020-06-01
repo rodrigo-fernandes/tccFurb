@@ -285,7 +285,7 @@
 				<div class="espacoBranco" />
 				<div class="espacoBranco" />
 				
-				<p:fieldset legend="comorbidade(s)" style=" padding-left: 37px;"> 
+				<p:fieldset legend="Comorbidade(s)" style=" padding-left: 37px;"> 
 					<p:panelGrid id="gridFilComorbidade" columns="3">
 					
 						<p:column rendered="#{filialBeanView.objetoSelecionado.fil_codigo != null}">
@@ -418,6 +418,65 @@
 							</p:row>
 						</p:column>						
 						
+						
+						
+						<p:column rendered="#{filialBeanView.objetoSelecionado.fil_codigo != null}">
+							<p:row>
+								<h:outputLabel for="fil_frutos_mar" value="Frutos do Mar : "
+									id="labelfil_frutos_mar" />
+							</p:row>
+						</p:column>
+						<p:column rendered="#{filialBeanView.objetoSelecionado.fil_codigo != null}">
+							<p:row>
+								<p:selectBooleanCheckbox id="fil_frutos_mar"
+									value="#{filialBeanView.objetoSelecionado.fil_frutos_mar}" />
+							</p:row>
+						</p:column>
+						<p:column rendered="#{filialBeanView.objetoSelecionado.fil_codigo != null}">
+							<p:row>
+								<p:message for="fil_frutos_mar" />
+							</p:row>
+						</p:column>						
+										
+									
+						<p:column rendered="#{filialBeanView.objetoSelecionado.fil_codigo != null}">
+							<p:row>
+								<h:outputLabel for="fil_soja" value="Soja : "
+									id="labelfil_soja" />
+							</p:row>
+						</p:column>
+						<p:column rendered="#{filialBeanView.objetoSelecionado.fil_codigo != null}">
+							<p:row>
+								<p:selectBooleanCheckbox id="fil_soja"
+									value="#{filialBeanView.objetoSelecionado.fil_soja}" />
+							</p:row>
+						</p:column>
+						<p:column rendered="#{filialBeanView.objetoSelecionado.fil_codigo != null}">
+							<p:row>
+								<p:message for="fil_soja" />
+							</p:row>
+						</p:column>			
+						
+
+						<p:column rendered="#{filialBeanView.objetoSelecionado.fil_codigo != null}">
+							<p:row>
+								<h:outputLabel for="fil_ovo" value="Ovo : "
+									id="labelfil_ovo" />
+							</p:row>
+						</p:column>
+						<p:column rendered="#{filialBeanView.objetoSelecionado.fil_codigo != null}">
+							<p:row>
+								<p:selectBooleanCheckbox id="fil_ovo"
+									value="#{filialBeanView.objetoSelecionado.fil_ovo}" />
+							</p:row>
+						</p:column>
+						<p:column rendered="#{filialBeanView.objetoSelecionado.fil_codigo != null}">
+							<p:row>
+								<p:message for="fil_ovo" />
+							</p:row>
+						</p:column>		
+												
+										
 											
 					
 				
