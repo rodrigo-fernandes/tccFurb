@@ -13,6 +13,10 @@
 		<h:form id="formCadastro" prependId="false">
 		<c:set var="isCadastro" value="true" scope="view"/>
 			<p:panel header="Cadastro de Menssagem" id="panelCadastro">
+				
+				<div class="espacoBranco" />
+				<font color="red">Campo obrigatório *</font>
+				<div class="espacoBranco" />
 
 				<p:panelGrid id="gridMsg" columns="3">
 					<p:column>
@@ -60,6 +64,9 @@
 							<h:outputLabel for="usr_destino" value="Destino : "
 								id="labelDestino" />
 						</p:row>
+						<p:row>
+							<font color="red">*</font>
+						</p:row>						
 					</p:column>
 					<p:column>
 						<p:row>
@@ -158,6 +165,9 @@
 						<p:row>
 							<h:outputLabel for="men_assunto" value="Assunto : " id="labelAss" />
 						</p:row>
+						<p:row>
+							<font color="red">*</font>
+						</p:row>						
 					</p:column>
 
 					<p:column>
@@ -187,6 +197,9 @@
 							<h:outputLabel for="men_mensagem" value="Mensagem : "
 								id="labelMsg" />
 						</p:row>
+						<p:row>
+							<font color="red">*</font>
+						</p:row>						
 					</p:column>
 
 					<p:column>

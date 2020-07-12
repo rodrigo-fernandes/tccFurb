@@ -87,7 +87,10 @@ public class Filial implements Serializable {
 	private Boolean fil_soja = false;
 	
 	@Column(nullable = false)
-	private Boolean fil_ovo = false;	
+	private Boolean fil_ovo = false;
+	
+	@Column(length = 255, nullable = true)
+	private String fil_outros;	
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@ForeignKey(name = "bai_codigo_fk")
@@ -105,11 +108,11 @@ public class Filial implements Serializable {
 	private String fil_nome;
 	
 	@IdentificaCampoPesquisa(descricaoCampo = "RG", campoConsulta = "fil_rg", principal = 1)
-	@Column(length = 10, nullable = false)
+	@Column(length = 10, nullable = true)
 	private String fil_rg;
 	
 	@IdentificaCampoPesquisa(descricaoCampo = "CPF", campoConsulta = "cri_cpf", principal = 1)
-	@Column(length = 15, nullable = false)
+	@Column(length = 15, nullable = true)
 	private String fil_cpf;	
 	
 	@Column(nullable = false, updatable = false)
@@ -209,6 +212,15 @@ public class Filial implements Serializable {
 	public void setFil_ovo(Boolean fil_ovo) {
 		this.fil_ovo = fil_ovo;
 	}
+
+	public String getFil_outros() {
+		return fil_outros;
+	}
+
+	public void setFil_outros(String fil_outros) {
+		this.fil_outros = fil_outros;
+	}
+
 
 
 
